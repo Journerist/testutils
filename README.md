@@ -15,5 +15,5 @@ addResource(String url)
 /*
  * Use this method to add all given files to your hibernate configuration object.
  */
-addAllResourcesTo(Configuration configuration)*
+addAllResourcesTo(Configuration configuration)
 ```
