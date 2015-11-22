@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+    <class name="org.journerist.testutils.entity.ManyToMany" table="PLAYER">
+        <id name="playerId" column="PLAYER_ID" >
+            <generator class="native"/>
+        </id>
+        <property name="username">
+            <column name="USERNAME" />
+        </property>
+        <property name="points">
+            <column name="POINTS"/>
+        </property>
+
+        <property name="gameCount">
+            <column name="GAME_COUNT"/>
+        </property>
+        <property name="createdDate" type="date">
+            <column name="CREATED_DATE"/>
+        </property>
+    </class>
+</hibernate-mapping>

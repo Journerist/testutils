@@ -1,0 +1,14 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+    <class name="com.journerist.exampleForCleanArchitecture.entity.PlayerText" table="PLAYER_TEXT">
+        <id name="textId" column="TEXT_ID" >
+            <generator class="native"/>
+        </id>
+        <property name="text">
+            <column name="text" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,47 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+    <class name="org.journerist.testutils.entity.DifferentRelationTypes" table="PLAYER">
+        <id name="playerId" column="PLAYER_ID" >
+            <generator class="native"/>
+        </id>
+        <property name="username">
+            <column name="USERNAME" />
+        </property>
+        <property name="points">
+            <column name="POINTS"/>
+        </property>
+
+        <property name="gameCount">
+            <column name="GAME_COUNT"/>
+        </property>
+        <property name="createdDate" type="date">
+            <column name="CREATED_DATE"/>
+        </property>
+
+        <one-to-one name="stockDetail" class="org.journerist.testutils.entity.OneToOne"
+                    cascade="save-update"></one-to-one>
+
+        <many-to-one name="studentAddress" class="org.journerist.testutils.entity.ManyToOne" column="STUDENT_ADDRESS" cascade="all" not-null="true" />
+
+        <set name="stockDailyRecords" table="stock_daily_record"
+             inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="STOCK_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.journerist.testutils.entity.OneToMany" />
+        </set>
+
+        <set name="categories" table="stock_category"
+             inverse="false" lazy="true" fetch="select" cascade="all" >
+            <key>
+                <column name="STOCK_ID" not-null="true" />
+            </key>
+            <many-to-many class="org.journerist.testutils.entity.ManyToMany">
+                <column name="CATEGORY_ID" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

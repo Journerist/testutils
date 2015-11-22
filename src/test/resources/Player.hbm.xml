@@ -1,0 +1,31 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+    <class name="com.journerist.exampleForCleanArchitecture.entity.Player" table="PLAYER">
+        <id name="playerId" column="PLAYER_ID" >
+            <generator class="native"/>
+        </id>
+        <property name="username">
+            <column name="USERNAME" />
+        </property>
+        <property name="points">
+            <column name="POINTS"/>
+        </property>
+
+        <property name="gameCount">
+            <column name="GAME_COUNT"/>
+        </property>
+        <property name="createdDate" type="date">
+            <column name="CREATED_DATE"/>
+        </property>
+        <set name="playerTexts" table="PLAYER_TEXT"
+             inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TEXT_ID" not-null="true" />
+            </key>
+            <one-to-many class="com.journerist.exampleForCleanArchitecture.entity.PlayerText" />
+        </set>
+    </class>
+</hibernate-mapping>
