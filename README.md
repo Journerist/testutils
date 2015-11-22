@@ -1,4 +1,4 @@
-# testutils
+# testutils ![Build](https://travis-ci.org/Journerist/testutils.svg?branch=master)
 Java project that contains testutil classes.
 
 ## HibernateConfigurationHelper
