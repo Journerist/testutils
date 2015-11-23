@@ -2,8 +2,9 @@ package org.journerist.testutils;
 
 import org.hibernate.cfg.Configuration;
 import org.journerist.testutils.common.ClassPathUtils;
-import org.journerist.testutils.parseStrategy.MultiLineHibernateConstraintTagStrategy;
-import org.journerist.testutils.parseStrategy.SimpleHibernateConstraintTagStrategy;
+import org.journerist.testutils.parseStrategy.OpenAndClosedTagHibernateConstraintStrategy;
+import org.journerist.testutils.parseStrategy.SetTagHibernateConstraintStrategy;
+import org.journerist.testutils.parseStrategy.SingleTagHibernateConstraintStrategy;
 import org.journerist.testutils.parseStrategy.interfaces.ConstraintTagStrategy;
 
 import java.io.ByteArrayInputStream;
@@ -23,8 +24,9 @@ public class HibernateConfigurationHelper {
     Charset charset = StandardCharsets.UTF_8;
 
     List<ConstraintTagStrategy> constraintTagStrategies = new ArrayList<ConstraintTagStrategy>(Arrays.asList(
-            new SimpleHibernateConstraintTagStrategy(),
-            new MultiLineHibernateConstraintTagStrategy()
+            new SingleTagHibernateConstraintStrategy(),
+            new OpenAndClosedTagHibernateConstraintStrategy(),
+            new SetTagHibernateConstraintStrategy()
     ));
 
     public void addAllResourcesTo(Configuration configuration) {

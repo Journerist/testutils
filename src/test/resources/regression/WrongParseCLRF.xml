@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.journerist.testutils.entitiy.WrongParse1">
+    <class name="WrongParse1" table="MANY_TO_ONE">
+
+        <composite-id name="id" class="Vehicle">
+            <key-property name="idVehicle" type="java.lang.Integer">
+                <column name="ID_Vehicle" precision="9" scale="0" />
+            </key-property>
+        </composite-id>
+
+        <many-to-one name="wheel" class="Wheel" fetch="select" insert="false" update="false">
+            <column name="OPERATOR" precision="2" scale="0" not-null="true" />
+            <column name="ID_WHEEL" precision="9" scale="0" not-null="true" />
+        </many-to-one>
+
+
+        <many-to-one name="frame" class="Frame" fetch="select" insert="false" update="false">
+            <column name="OPERATOR" precision="2" scale="0" not-null="true" />
+            <column name="ID_FRAME" precision="9" scale="0" not-null="true" />
+        </many-to-one>
+
+        <property name="seatKz" type="string">
+            <column name="SEAT_KZ" length="6" not-null="true" />
+        </property>
+
+        <property name="changeDate" type="string">
+            <column name="CHANGE_DATE" length="14" not-null="true" />
+        </property>
+
+    </class>
+</hibernate-mapping>

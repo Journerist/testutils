@@ -7,12 +7,13 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MultiLineHibernateConstraintTagStrategy extends RegexpHibernateConstraintTagStrategy {
+public class SingleTagHibernateConstraintStrategy extends RegexpHibernateConstraintTagStrategy {
 
-    private static final String regexp = "<set(.|\\n)*?<(?<relation>\\w+-\\w+-\\w+).*(class|entity-name)=\"(?<entityClass>(\\w|\\.)*)\"(.|\\n)*?<\\/set>";
+    private static final String regexp = "<(?<relation>one-to-one|many-to-one)(\\d|[a-zA-Z]|\\=|\\\"|\\s|\\-|\\.|\\n|\\r\\n)*?class=\"(?<entityClass>(\\w|\\.)*)\"(\\d|\\w|\\=|\\\"|\\s|\\-|\\.|\\n|\\r\\n)*?(\\/>)";
 
     @Override
     protected String getRegexpString() {
         return regexp;
     }
+
 }
