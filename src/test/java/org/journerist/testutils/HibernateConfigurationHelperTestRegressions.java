@@ -40,7 +40,7 @@ public class HibernateConfigurationHelperTestRegressions {
                 "\r\n" +
                 "        <property name=\"seatKz\" type=\"string\">\r\n" +
                 "            <column name=\"SEAT_KZ\" length=\"6\" not-null=\"true\" />\r\n" +
-                "n        </property>\r\n" +
+                "        </property>\r\n" +
                 "\r\n" +
                 "        <property name=\"changeDate\" type=\"string\">\r\n" +
                 "            <column name=\"CHANGE_DATE\" length=\"14\" not-null=\"true\" />\r\n" +

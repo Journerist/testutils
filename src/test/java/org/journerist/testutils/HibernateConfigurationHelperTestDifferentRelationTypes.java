@@ -1,7 +1,6 @@
 package org.journerist.testutils;
 
 import de.bechte.junit.runners.context.HierarchicalContextRunner;
-import org.journerist.testutils.enums.ReplaceableTag;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
